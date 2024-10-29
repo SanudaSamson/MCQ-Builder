@@ -64,14 +64,20 @@ textarea{
     outline-style: none;
     font-size: 2vh;
     padding: 5px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
 }
 textarea:focus{
     border: 2px solid black;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
 }
 #fetch{
     margin: 10px;
     width: 98.5%;
     font-size: 2.2vh;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
 }
 
 .btnContainer{
@@ -174,14 +180,13 @@ textarea:focus{
 .ok , .cancel{
     box-shadow: none;
     padding: 5px;
-    width: 100%;
+    max-width: fit-content;
     height: auto;
     margin: 2px;
     background: none;
     background-color: rgba(0, 0, 0, 0.267);
     border: none;
     font-size: 1.75vh;
-    width: 80px;
 }
 .ok:hover , .cancel:hover{
     background-color: rgba(0, 0, 0, 0.425);

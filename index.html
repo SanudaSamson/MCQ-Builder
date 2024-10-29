@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="script.js" defer></script>
+    <meta name=""viewport content="width=device-width, intial-scale=2.0">
+    <link rel="stylesheet" href="style.css">
+    <title>MCQ Builder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <center><h1 class="topic">MCQ Builder</h1></center>
+  <div class="btnContainer2">
+    <button id="myBtn">Help ?</button>
+    <button onclick="Export2Word('textareaContainer', 'Word-MCQ-Builder.docx');"  class="save-btn">Export as .docx<i class="fa-solid fa-download"></i></button>
+  </div>
+  <div class="btnContainer">
+    <button onclick="CreateTable()">Layout 1</button>
+    <button onclick="CreateTable1()">Layout 2</button>
+    <button onclick="CreateTable2()">Layout 3</button>
+    <button onclick="CreateTable3()">Layout 4</button>
+    
+  </div>
+  
+  <center>
+    <div id="container">
+      <table id="fetch" border="0">
+  
+      </table>
+    </div>  
+  </center>  
+    <div id="subContainer">
+      <i class="fa-light fa-circle-plus"></i>
+      <h1>Choose a Layout.</h1>
+      <h1>Your content will add here.</h1>
+    </div>   
+
+      <div id="myModal" class="modal">
+ 
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Step 1 : Choose "Layout 1" or "Layout 2" for question with 4 choices and "Layout 3" or "Layout 4" for question with 5 choices.</p>
+          <br>
+          <p>Step 2 : Type your questions and choices.</p><br>
+          <p>Step 3 : After typing all MCQs click "Export as .docx" button to get the Word file.<br>
+          You can edit further more on Word
+          </p>
+        </div>
+      </div>
+      <button onclick="topFunction()" id="myBtn2" title="Go to top">Top <i class="fa-solid fa-arrow-up"></i></button>
+</body>
+</html>

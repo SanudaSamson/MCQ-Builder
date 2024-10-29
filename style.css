@@ -63,7 +63,6 @@ textarea{
     margin: 0px;
     outline-style: none;
     font-size: 2vh;
-    padding: 5px;
 }
 textarea:focus{
     border: 2px solid black;

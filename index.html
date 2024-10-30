@@ -8,19 +8,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <center><h1 class="topic">MCQ Builder</h1></center>
+  <center><h1 class="topic">MCQ Builder</h1></center><hr>
   <div class="btnContainer2">
     <button id="myBtn">Help ?</button>
     <button onclick="Export2Word('textareaContainer', 'Word-MCQ-Builder.docx');"  class="save-btn">Export as .docx<i class="fa-solid fa-download"></i></button>
   </div>
+  <div class="btnContainer3">
+    <button onclick="enableBtn1()" id="btnChoice1">4 Choices</button>
+    <button onclick="enableBtn2()" id="btnChoice2">5 Choices</button>
+    <!-- <button onclick="resetBtn()" id="btnReset">Reset</button> -->
+  </div>
   <div class="btnContainer">
-    <button onclick="CreateTable()">Layout 1</button>
-    <button onclick="CreateTable1()">Layout 2</button>
-    <button onclick="CreateTable2()">Layout 3</button>
-    <button onclick="CreateTable3()">Layout 4</button>
+    <button onclick="CreateTable()" id="layout1">Layout 1</button>
+    <button onclick="CreateTable1()" id="layout2">Layout 2</button>
+    <button onclick="CreateTable2()" id="layout3">Layout 3</button>
+    <button onclick="CreateTable3()" id="layout4">Layout 4</button>
     
   </div>
-  
+<hr>
   <center>
     <div id="container">
       <table id="fetch" border="0">
@@ -30,7 +35,7 @@
   </center>  
     <div id="subContainer">
       <i class="fa-light fa-circle-plus"></i>
-      <h1>Choose a Layout.</h1>
+      <h1>Select "4 Choices" or "5 Choices".</h1>
       <h1>Your content will add here.</h1>
     </div>   
 
@@ -38,7 +43,9 @@
  
         <div class="modal-content">
           <span class="close">&times;</span>
-          <p>Step 1 : Choose "Layout 1" or "Layout 2" for question with 4 choices and "Layout 3" or "Layout 4" for question with 5 choices.</p>
+          <p>Step 1 : Select "4 Choices" or "5 Choices" depending on how many choices given for a question.</p>
+          <br>
+          <p>Step 2 : Choose "Layout 1" or "Layout 2".</p>
           <br>
           <p>Step 2 : Type your questions and choices.</p><br>
           <p>Step 3 : After typing all MCQs click "Export as .docx" button to get the Word file.<br>

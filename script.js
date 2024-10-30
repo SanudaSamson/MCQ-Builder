@@ -1,5 +1,45 @@
 const container = document.getElementById("container");
 const subContainer = document.getElementById("subContainer");
+
+const btnLayout1 =  document.getElementById("layout1")
+const btnLayout2 =  document.getElementById("layout2")
+const btnLayout3 =  document.getElementById("layout3")
+const btnLayout4 =  document.getElementById("layout4")
+
+const btnChoice1 = document.getElementById("btnChoice1")
+const btnChoice2 = document.getElementById("btnChoice2")
+
+function enableBtn1(){
+  btnLayout1.style.display = "block"
+  btnLayout2.style.display = "block"
+  btnChoice2.style.cursor = "not-allowed"
+  btnChoice2.disabled = "true"
+  btnChoice1.style.border = "2px solid red"
+  btnChoice2.style.color = "#b6b5b5"
+}
+function enableBtn2(){
+  btnLayout3.style.display = "block"
+  btnLayout4.style.display = "block"
+  btnChoice1.style.cursor = "not-allowed"
+  btnChoice1.disabled = "true"
+  btnChoice2.style.border = "2px solid red"
+  btnChoice1.style.color = "#b6b5b5"
+
+}
+// function resetBtn(){
+//   btnLayout1.style.display = "none"
+//   btnLayout2.style.display = "none"
+//   btnChoice2.disabled = ""
+//   btnLayout3.style.display = "none"
+//   btnLayout4.style.display = "none"
+//   btnChoice1.disabled = ""
+//   container.innerHTML = "<table id='fetch' border='0'></table>"
+//   subContainer.style.display = "flex";
+//   container.style.display = "none"
+//   btnChoice1.style.cursor = "pointer"
+//   btnChoice2.style.cursor = "pointer"
+// }
+
 function Export2Word(element, filename = ''){
   if(container.innerText == ""){
     alert("Please type at least 1 MCQ to export.");
@@ -58,7 +98,7 @@ function CreateTable(){
         var cell3 = row1.insertCell(2);
         var cell4 = row1.insertCell(3);
 
-        cellQ.colSpan = "5";
+        cellQ.colSpan = "4";
         cellQ.style.padding= "5px 0px";
         cellQ.width = "100%";
         cell4.colSpan = "2";
@@ -67,16 +107,17 @@ function CreateTable(){
         cell3.style.padding= "2px 0px 2px 20px";
         cell4.style.padding= "2px 0px 2px 20px";
         cellQ.innerText = "Question";
-        cell1.width = "20%";
-        cell2.width = "20%";
-        cell3.width = "20%";
-        cell4.width = "40%";
+        cell1.width = "25%";
+        cell2.width = "25%";
+        cell3.width = "25%";
+        cell4.width = "25%";
         cell1.innerHTML = "1. ";
         cell2.innerHTML = "2. ";
         cell3.innerHTML = "3. ";
         cell4.innerHTML = "4. ";
-        subContainer.innerHTML = "";
-        subContainer.style.border = "none";
+        subContainer.style.display = "none";
+        container.style.display = "flex";
+
     }
 
 function CreateTable1(){
@@ -92,16 +133,16 @@ function CreateTable1(){
         var cell3 = row3.insertCell(0);
         var cell4 = row4.insertCell(0);
 
-        cellQ.colSpan = "5";
+        cellQ.colSpan = "4";
         cellQ.style.padding= "10px 0px 2px 0px";
         cellQ.width = "100%";
-        cell1.colSpan = "5";
+        cell1.colSpan = "4";
         cell1.width = "100%";
-        cell2.colSpan = "5";
+        cell2.colSpan = "4";
         cell2.width = "100%";
-        cell3.colSpan = "5";
+        cell3.colSpan = "4";
         cell3.width = "100%";
-        cell4.colSpan = "5";
+        cell4.colSpan = "4";
         cell4.width = "100%";
         cell1.style.padding= "2px 0px 2px 20px";
         cell2.style.padding= "2px 0px 2px 20px";
@@ -114,8 +155,9 @@ function CreateTable1(){
         cell3.innerHTML = "3. ";
         cell4.innerHTML = "4. ";
 
-        subContainer.innerHTML = "";
-        subContainer.style.border = "none";
+        subContainer.style.display = "none";
+        container.style.display = "flex";
+
     }
 
 function CreateTable2(){
@@ -148,8 +190,9 @@ function CreateTable2(){
         cell3.innerHTML = "3. ";
         cell4.innerHTML = "4. ";
         cell5.innerHTML = "5. ";
-        subContainer.innerHTML = "";
-        subContainer.style.border = "none";
+        subContainer.style.display = "none";
+        container.style.display = "flex";
+
     }
 
 function CreateTable3(){
@@ -193,8 +236,9 @@ function CreateTable3(){
   cell4.innerHTML = "4. ";
   cell5.innerHTML = "5. ";
 
-  subContainer.innerHTML = "";
-  subContainer.style.border = "none";
+  subContainer.style.display = "none";
+  container.style.display = "flex";
+
 }
 table.onclick = function(event) {
   let target = event.target.closest('.cancel,.ok,td');

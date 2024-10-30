@@ -17,7 +17,7 @@
 }
 #subContainer{
     display: flex;
-    height: 87vh;
+    height: 74.5vh;
     margin: 0px;
     justify-content: center;
     align-items: center;
@@ -94,6 +94,11 @@ textarea:focus{
   margin: auto;    
   flex-wrap: wrap;
 }
+.btnContainer3{
+  display: flex;
+  justify-content: center;
+  background-color: #e6e5e5;
+}
 .btnContainer2 .save-btn{
     background-color: #d6d6e7;
 }
@@ -110,7 +115,7 @@ textarea:focus{
   box-sizing: border-box;
   color: black;
   cursor: pointer;
-  display: inline-flex;
+  display: none;
   font-family: "poppins",monospace;
   overflow: hidden;
   position: relative;
@@ -171,11 +176,48 @@ textarea:focus{
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(2px);
 }
+.btnContainer3 button{
+  align-items: center;
+  width: fit-content;
+  min-width: none;
+  margin: 10px 5px;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "poppins",monospace;
+  overflow: hidden;
+  position: relative;
+  padding: 1.2vh;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  will-change: box-shadow,transform;
+  font-size: 2vh;
+  font-weight: none;
+}
+
+.btnContainer3 button:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.btnContainer3 button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.btnContainer3 button:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
 .ok , .cancel{
     box-shadow: none;
-    padding: 5px;
-    width: 70px;
-    height: auto;
+    padding: 5px 25px;
+    width: auto;
+    height: fit-content;
     margin: 2px;
     background: none;
     background-color: rgba(0, 0, 0, 0.267);
@@ -266,4 +308,8 @@ span{
 
 #myBtn2:hover {
   background-color: #555;
+}
+hr{
+  border: 1px solid black;
+  margin: 10px 0px;
 }

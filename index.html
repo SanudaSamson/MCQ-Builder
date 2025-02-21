@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Builder</title>
+    <link rel="stylesheet" href="/css/frontPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="/js/frontPage.js" defer></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="mainContainer">
+            <center>
+            <h1>MCQ Builder</h1>
+            </center>
+            <div class="fileInfoContainer">
+                <input type="text" id="fileName" placeholder="File Name" maxlength="30">
+                <select id="noOfChoices">
+                    <option value="4">4 Choices</option>
+                    <option value="5">5 Choices</option>
+                </select>
+            </div>
+            <p id="errMsg"></p>
+            <button id="btnCreateFile">Create File <i class="fa-solid fa-file-circle-plus"></i></button>
+           
+        </div>
+    </div>
+</body>
+</html>

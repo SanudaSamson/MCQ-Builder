@@ -14,6 +14,6 @@ btnCreateFile.addEventListener("click", (e) => {
     else{
         localStorage.setItem("fileName", fileName)
         localStorage.setItem("noOfChoices", noOfChoices)
-        window.location.assign("/otherPages/mainPage.html");
+        window.location.assign("/mainPage.html");
     }
 })

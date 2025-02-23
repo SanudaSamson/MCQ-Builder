@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>MCQ Builder</title>
+    <link rel="stylesheet" href="css/mainPage.css">
+    <script src="js/mainPage.js" defer></script>
+</head>
+<body>
+    <div class="sectionTop">
+        <abbr title="New File"><button id="btnNewFile" class="btn" onclick="window.open('./index.html')"><i class="fa-solid fa-file-circle-plus"></i></button></abbr>
+        <abbr title="Export File"><button id="btnExport" class="btn" onclick="Export2Word()"><i class="fa-solid fa-file-export"></i></button></abbr>
+        <input type="text" id="fileName" placeholder="File Name" maxlength="30">
+    </div>
+    <hr>
+    <center>
+    <div class="sectionlayoutBtn">
+        <button id="layout1" onclick="handleBtnLayout1(4)" style="border-left:none">Layout 1</button>
+        <button id="layout2" onclick="handleBtnLayout2(4)" >Layout 2</button>
+        <abbr title="Bullet point type">
+            <select id="bullets" style="border-right:none">
+                <option value="1">1.</option>
+                <option value="A">A.</option>
+                <option value="I">I.</option>
+            </select>
+        </abbr>
+    </div>
+    <hr>
+    <div class="sectionMain" id="sectionMain"></div>
+    
+    <div id="subContainer">
+        <i class="fa-solid fa-file-pen"></i>
+        <h1>Select your layout.</h1>
+        <h1>Your content will add here.</h1>
+    </div>   
+    </center>
+</body>
+</html>

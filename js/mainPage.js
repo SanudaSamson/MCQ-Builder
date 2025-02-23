@@ -4,13 +4,31 @@ const btnLayout1 = document.getElementById("layout1")
 const btnLayout2 = document.getElementById("layout2")
 const errMsg = document.getElementById("errMsg")
 const subContainer = document.getElementById("subContainer")
+const selectBullets = document.getElementById("bullets")
 var questionNo = 0
 var draggables = null
+
+var numBullets = ["1","2","3","4","5"]
+var romanBullets = ["I","II","III","IV","V"]
+var letterBullets = ["A","B","C","D","E"]
+
+var bullets = numBullets
 
 /* 1. retrieve the file name and no of choices from local storage*/
 var fileName = localStorage.getItem("fileName")
 fileNameInput.value = fileName
 const noOfChoices = Number(localStorage.getItem("noOfChoices"))
+
+function getBulletType(){
+    var bulletType = selectBullets.value
+    if (bulletType == "I"){
+        bullets = romanBullets
+    }
+    else if (bulletType == "A"){
+        bullets = letterBullets
+    }
+    return bullets
+}
 
 function addLongCell(row, text){
     /* 
@@ -43,7 +61,8 @@ function addShortCell(row){
         var cell = row.insertCell(i)
         cell.style.width = `${100/noOfChoices}%`
         cell.style.overflowWrap = "break-word"
-        cell.innerHTML = `<p contenteditable='true'>${i+1}. </p>`;
+        bullets = getBulletType()
+        cell.innerHTML = `<p contenteditable='true'>${bullets[i]}. </p>`;
     }
 }
 
@@ -81,7 +100,8 @@ function handleBtnLayout2(){
     addLongCell(rowQ, `${questionNo}. Question`)
     for(let i=0;i<noOfChoices;i++){
         var rowC = table.insertRow(table.lastIndex);
-        addLongCell(rowC, `${i+1}. `)
+        bullets = getBulletType()
+        addLongCell(rowC, `${bullets[i]}. `)
     }
 
     mainSection.append(table)

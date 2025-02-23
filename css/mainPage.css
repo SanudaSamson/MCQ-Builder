@@ -90,10 +90,11 @@ contain file name input and export button */
     align-items: center;
     gap: 0px;
 }
-
-.sectionlayoutBtn button{
-    padding: 5px;
+.sectionlayoutBtn button,
+.sectionlayoutBtn select{
+    padding: 4px 8px;
     cursor: pointer;
+    outline: none;
     font-family: "Montserrat", serif;
     font-weight: 550;
     font-size: 1rem;
@@ -103,14 +104,17 @@ contain file name input and export button */
     color: black;
     background: none;
     transition: 0.25s;
-    width: 100px;
 }
-.sectionlayoutBtn button:hover{
-    color:darkorange;
+.sectionlayoutBtn select option{
+    font-weight: 550;
+}
+.sectionlayoutBtn button:hover,
+.sectionlayoutBtn select:hover{
+    color:orange;
 }
 /* customizing elements in main section */
 .sectionMain{
-    width: 96%;
+    width: 95%;
     border: 2px solid black;
     padding: 3px;
     display: none;

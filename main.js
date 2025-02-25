@@ -97,7 +97,7 @@ function handleBtnLayout1(){
     questionNo++
     var rowC = table.insertRow(table.lastIndex);
 
-    addLongCell(rowQ,`${questionNo}. Question`)
+    addLongCell(rowQ,`${questionNo}. Q`)
     addShortCell(rowC)
 
     mainContainer.append(table)
@@ -118,7 +118,7 @@ function handleBtnLayout2(){
     
     var rowQ = table.insertRow(table.lastIndex);
     questionNo++
-    addLongCell(rowQ, `${questionNo}. Question`)
+    addLongCell(rowQ, `${questionNo}. Q`)
 
     for(let i=0;i<noOfChoices;i++){
         var rowC = table.insertRow(table.lastIndex);

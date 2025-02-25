@@ -1,4 +1,5 @@
 const inputFileName = document.querySelector(".inputFileName")
+const errMsg = document.querySelector(".errMsg")
 const mainContainer = document.querySelector(".mainContainer")
 const subContainer = document.querySelector(".subContainer")
 const selectBullets = document.querySelector(".bullets")
@@ -13,6 +14,15 @@ var draggables = null
 var noOfChoices = 4
 var bullets = numBullets
 
+function showErrMsg(text){
+    /*
+    showing the err msgs related to input file name
+    
+    @params:text -> text you want to display as the err msg
+    */
+
+    errMsg.innerText = text
+}
 function getNoOfChoices(){
     if (selectNoOfChoices.value == "4"){
         noOfChoices = 4
@@ -130,15 +140,14 @@ function Export2Word(){
         alert("Please type at least 1 MCQ to export.");
     }
     else if (inputFileName.value == ""){
-        // errMsg.innerText = "Please enter a file name"
-        alert("Please enter a file name")
-        
+        showErrMsg("Please enter a file name")        
     }
     else if(inputFileName.value.indexOf(" ") !== -1){
-        // errMsg.innerText = "File name cannot contain spaces"
-        alert("File name cannot contain spaces")
+        showErrMsg("File name cannot contain spaces")
     }
     else{
+        showErrMsg("")
+
         var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
         var postHtml = "</body></html>";
         var html = preHtml+mainContainer.innerHTML+postHtml;

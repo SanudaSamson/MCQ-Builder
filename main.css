@@ -15,17 +15,26 @@ hr{
 .topContainer{
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
     flex-wrap: wrap;
     gap: 10px;
     margin: 10px 30px;
+    height: fit-content;
 }
-.topContainer p{
+.fileNameContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-self: flex-start;
+    gap: 4px;
+}
+.errMsg{
     font-family: "Montserrat", serif;
-    font-weight: 500;
-    font-size: 0.9rem;
+    font-weight: 550;
+    font-size: 0.8rem;
     color:red;
-    text-align: center;
+    text-align: left;
+    padding-left: 5px;
 }
 .inputFileName{
     font-family: "Montserrat", serif;
@@ -33,7 +42,7 @@ hr{
     font-size: 1rem;
     border: 0;
     border-bottom: 2px solid black;
-    padding: 8px 5px;
+    padding: 5px;
     width: 250px;
     background:none;
     outline: none;
@@ -67,14 +76,15 @@ hr{
 
 @media (width<=550px){
     .topContainer{
-        display: flex;
-        align-items: center;
         justify-content: center;
     }
 }
 @media (width<=440px){
     .inputFileName{
         width: 100%;
+    }
+    .errMsg{
+        padding-left: 0;
     }
 }
 /* customizing latyout menu */

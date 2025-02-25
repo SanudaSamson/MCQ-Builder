@@ -11,9 +11,8 @@ hr{
     border: 1px solid black;
     margin: 10px 0;
 }
-/* customizing top section.
-contain file name input and export button */
-.sectionTop{
+/* customizing top section.*/
+.topContainer{
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -21,14 +20,14 @@ contain file name input and export button */
     gap: 10px;
     margin: 10px 30px;
 }
-.sectionTop p{
+.topContainer p{
     font-family: "Montserrat", serif;
     font-weight: 500;
     font-size: 0.9rem;
     color:red;
     text-align: center;
 }
-.sectionTop input[type="text"]{
+.inputFileName{
     font-family: "Montserrat", serif;
     font-weight: 550;
     font-size: 1rem;
@@ -42,13 +41,13 @@ contain file name input and export button */
     color: black;
     align-self: center;
 }
-.sectionTop input[type="text"]::placeholder{
+.inputFileName::placeholder{
     color: rgb(148, 148, 148);
 }
-.sectionTop input[type="text"]:hover::placeholder{
+.inputFileName:hover::placeholder{
     color: black;
 }
-.sectionTop button.btn { 
+.topContainer button.btn { 
     padding: 15px 20px;
     cursor: pointer;
     font-family: "Montserrat", serif;
@@ -57,95 +56,93 @@ contain file name input and export button */
     border-radius: 50%;
     border:none;
     color: black;
-    /* background-size: 200% auto;
-    background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  100%);
-    */
     transition: 0.5s;
     width: 50px; 
     height: 50px;
 }
-.sectionTop button.btn:hover{
+.topContainer button.btn:hover{
     background-color: gold;
     background-position: right center;
 }
 
 @media (width<=550px){
-    .sectionTop{
+    .topContainer{
         display: flex;
         align-items: center;
         justify-content: center;
     }
 }
 @media (width<=440px){
-    .sectionTop input[type="text"]{
+    .inputFileName{
         width: 100%;
     }
 }
 /* customizing latyout menu */
-.sectionlayoutBtn{
+.layoutBtnContainer{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 0px;
+    gap: 5px;
 }
-.sectionlayoutBtn button,
-.sectionlayoutBtn select{
+.layoutBtnContainer button,
+.layoutBtnContainer select{
     padding: 4px 8px;
     cursor: pointer;
     outline: none;
     font-family: "Montserrat", serif;
     font-weight: 550;
     font-size: 1rem;
-    border:none;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    border:2px solid black;
     color: black;
-    background: none;
+    background: hsl(0, 0%, 96%);
     transition: 0.25s;
+    height: 35px;
+    border-radius: 5px;
 }
-.sectionlayoutBtn select option{
+.layoutBtnContainer select option{
     font-weight: 550;
 }
-.sectionlayoutBtn button:hover,
-.sectionlayoutBtn select:hover{
-    color:orange;
+.layoutBtnContainer button:hover,
+.layoutBtnContainer select:hover{
+    border-color: gold;
 }
 /* customizing elements in main section */
-.sectionMain{
+.mainContainer{
     width: 95%;
     border: 2px solid black;
     padding: 3px;
     display: none;
 }
-.sectionMain table{
+.mainContainer table{
     padding: 5px;
     border: 2px solid white; 
 }
-.sectionMain table:hover{
+.mainContainer table:hover{
     border: 2px solid orange; 
 
 }
-.sectionMain table td p{
+.mainContainer table td p{
     font-family: "Open Sans", serif;
     font-weight: 500;
     font-size: 1rem;
     padding: 3px 2px;
     cursor: pointer;
 }
-.sectionMain table td p:focus{
+.mainContainer table td p:focus{
     cursor: text;
 }
-.sectionMain .draggable{
+.mainContainer .draggable{
     cursor: pointer;
 }
-.sectionMain .draggable.dragging{
+.mainContainer .draggable.dragging{
     opacity: 0.5;
     border: 2px solid red; 
 }
+
 /* customizing sub container */
-#subContainer{
+.subContainer{
     display: flex;
     width: 90%;
     height: 78vh;
@@ -176,12 +173,12 @@ contain file name input and export button */
         border-color: #d93f87;
     }
   }
-#subContainer i{
+.subContainer i{
     font-size: 3rem;
     margin: 3px;
     color: lightslategray
 }
-#subContainer h1{
+.subContainer h1{
     margin: 3px;
     font-size: 2.25vh;
     color: lightslategray;

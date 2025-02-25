@@ -1,24 +1,27 @@
-const fileNameInput = document.getElementById("fileName")
-const mainSection = document.getElementById("sectionMain")
-const btnLayout1 = document.getElementById("layout1")
-const btnLayout2 = document.getElementById("layout2")
-const errMsg = document.getElementById("errMsg")
-const subContainer = document.getElementById("subContainer")
-const selectBullets = document.getElementById("bullets")
-var questionNo = 0
-var draggables = null
+const inputFileName = document.querySelector(".inputFileName")
+const mainContainer = document.querySelector(".mainContainer")
+const subContainer = document.querySelector(".subContainer")
+const selectBullets = document.querySelector(".bullets")
+const selectNoOfChoices = document.querySelector(".noOfChoices")
 
 var numBullets = ["1","2","3","4","5"]
 var romanBullets = ["I","II","III","IV","V"]
 var letterBullets = ["A","B","C","D","E"]
 
+var questionNo = 0
+var draggables = null
+var noOfChoices = 4
 var bullets = numBullets
 
-/* 1. retrieve the file name and no of choices from local storage*/
-var fileName = localStorage.getItem("fileName")
-fileNameInput.value = fileName
-const noOfChoices = Number(localStorage.getItem("noOfChoices"))
-
+function getNoOfChoices(){
+    if (selectNoOfChoices.value == "4"){
+        noOfChoices = 4
+    }
+    else if (selectNoOfChoices.value == "5"){
+        noOfChoices = 5
+    }
+    return noOfChoices
+}
 function getBulletType(){
     var bulletType = selectBullets.value
     if (bulletType == "I"){
@@ -26,6 +29,9 @@ function getBulletType(){
     }
     else if (bulletType == "A"){
         bullets = letterBullets
+    }
+    else if (bulletType == "1"){
+        bullets = numBullets
     }
     return bullets
 }
@@ -42,6 +48,7 @@ function addLongCell(row, text){
     */
 
     var cell = row.insertCell(0)
+    noOfChoices = getNoOfChoices()
 
     cell.style.width = "100%"
     cell.colSpan = `${noOfChoices}`
@@ -56,6 +63,8 @@ function addShortCell(row){
 
     @return: null
     */
+
+    noOfChoices = getNoOfChoices()
 
     for(let i = 0; i<noOfChoices;i++){
         var cell = row.insertCell(i)
@@ -81,10 +90,12 @@ function handleBtnLayout1(){
     addLongCell(rowQ,`${questionNo}. Question`)
     addShortCell(rowC)
 
-    mainSection.append(table)
+    mainContainer.append(table)
     
     subContainer.style.display = "none";
-    mainSection.style.display = "block";
+    mainContainer.style.display = "block";
+
+    moveTable()
 }
 
 // handling button layout2
@@ -98,36 +109,39 @@ function handleBtnLayout2(){
     var rowQ = table.insertRow(table.lastIndex);
     questionNo++
     addLongCell(rowQ, `${questionNo}. Question`)
+
     for(let i=0;i<noOfChoices;i++){
         var rowC = table.insertRow(table.lastIndex);
         bullets = getBulletType()
         addLongCell(rowC, `${bullets[i]}. `)
     }
 
-    mainSection.append(table)
+    mainContainer.append(table)
 
     subContainer.style.display = "none";
-    mainSection.style.display = "block";
+    mainContainer.style.display = "block";
+
+    moveTable()
 }
 
 // handling export part
 function Export2Word(){
-    if(mainSection.innerHTML == ""){
+    if(mainContainer.innerHTML == ""){
         alert("Please type at least 1 MCQ to export.");
     }
-    else if (fileNameInput.value == ""){
+    else if (inputFileName.value == ""){
         // errMsg.innerText = "Please enter a file name"
         alert("Please enter a file name")
         
     }
-    else if(fileNameInput.value.indexOf(" ") !== -1){
+    else if(inputFileName.value.indexOf(" ") !== -1){
         // errMsg.innerText = "File name cannot contain spaces"
         alert("File name cannot contain spaces")
     }
     else{
         var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
         var postHtml = "</body></html>";
-        var html = preHtml+mainSection.innerHTML+postHtml;
+        var html = preHtml+mainContainer.innerHTML+postHtml;
         
 
         var blob = new Blob(['\ufeff', html], {
@@ -138,7 +152,7 @@ function Export2Word(){
         var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
         
         // Specify file name
-        var fileName = fileNameInput.value+'.doc';
+        var fileName = inputFileName.value+'.doc';
         
         // Create download link element
         var downloadLink = document.createElement("a");
@@ -164,7 +178,7 @@ function Export2Word(){
 
 // deleting a table when necessory
 // you've press the alt key and click the table you want delete
-mainSection.addEventListener("click", (e)=>{
+mainContainer.addEventListener("click", (e)=>{
     if (e.altKey){
         if (e.target.offsetParent.offsetParent.innerText[0] == questionNo){
             questionNo--
@@ -185,15 +199,15 @@ function moveTable(){
         })
     })
 
-    mainSection.addEventListener("dragover", e=>{
+    mainContainer.addEventListener("dragover", e=>{
         e.preventDefault()
-        const afterElement = getDragAfterElement(mainSection, e.clientY)
+        const afterElement = getDragAfterElement(mainContainer, e.clientY)
         const draggable = document.querySelector(".dragging")
         if(afterElement == null){
-            mainSection.append(draggable)
+            mainContainer.append(draggable)
         }
         else{
-            mainSection.insertBefore(draggable, afterElement)
+            mainContainer.insertBefore(draggable, afterElement)
         }
     })
 
@@ -212,12 +226,5 @@ function moveTable(){
     }
 }
 
-btnLayout1.addEventListener("click", ()=>{
-    moveTable()
-})
-
-btnLayout2.addEventListener("click", ()=>{
-    moveTable()
-})
 
 

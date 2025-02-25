@@ -137,7 +137,7 @@ function handleBtnLayout2(){
 // handling export part
 function Export2Word(){
     if(mainContainer.innerHTML == ""){
-        alert("Please type at least 1 MCQ to export.");
+        alert("Please type at least 1 MCQ to download.");
     }
     else if (inputFileName.value == ""){
         showErrMsg("Please enter a file name")        
